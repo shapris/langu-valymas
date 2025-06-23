@@ -9,12 +9,14 @@ import {
   DollarSign,
   MapPin,
   Menu,
-  X
+  X,
+  LogOut
 } from 'lucide-react'
 
 interface SidebarProps {
   sidebarOpen: boolean
   setSidebarOpen: (open: boolean) => void
+  onLogout: () => void
 }
 
 const navigation = [
@@ -27,7 +29,7 @@ const navigation = [
   { name: 'Maršrutai', href: '/routes', icon: MapPin },
 ]
 
-export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
+export default function Sidebar({ sidebarOpen, setSidebarOpen, onLogout }: SidebarProps) {
   const location = useLocation()
 
   return (
@@ -86,14 +88,23 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
 
         {/* User section */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
-          <div className="flex items-center">
-            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-              <span className="text-gray-600 text-sm font-medium">JD</span>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                <span className="text-gray-600 text-sm font-medium">JD</span>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm font-medium text-gray-700">Jonas Darbuotojas</p>
+                <p className="text-xs text-gray-500">Administratorius</p>
+              </div>
             </div>
-            <div className="ml-3">
-              <p className="text-sm font-medium text-gray-700">Jonas Darbuotojas</p>
-              <p className="text-xs text-gray-500">Administratorius</p>
-            </div>
+            <button
+              onClick={onLogout}
+              className="text-gray-400 hover:text-gray-600 p-1"
+              title="Atsijungti"
+            >
+              <LogOut className="h-4 w-4" />
+            </button>
           </div>
         </div>
       </div>
