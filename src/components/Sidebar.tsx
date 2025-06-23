@@ -4,8 +4,10 @@ import {
   Home, 
   Users, 
   Building2, 
-  DollarSign, 
+  Calendar,
   CheckSquare,
+  DollarSign,
+  MapPin,
   Menu,
   X
 } from 'lucide-react'
@@ -16,11 +18,13 @@ interface SidebarProps {
 }
 
 const navigation = [
-  { name: 'Dashboard', href: '/', icon: Home },
-  { name: 'Contacts', href: '/contacts', icon: Users },
-  { name: 'Companies', href: '/companies', icon: Building2 },
-  { name: 'Deals', href: '/deals', icon: DollarSign },
-  { name: 'Tasks', href: '/tasks', icon: CheckSquare },
+  { name: 'Pagrindinis', href: '/', icon: Home },
+  { name: 'Klientai', href: '/clients', icon: Users },
+  { name: 'Objektai', href: '/properties', icon: Building2 },
+  { name: 'Užsakymai', href: '/orders', icon: Calendar },
+  { name: 'Užduotys', href: '/tasks', icon: CheckSquare },
+  { name: 'Finansai', href: '/finances', icon: DollarSign },
+  { name: 'Maršrutai', href: '/routes', icon: MapPin },
 ]
 
 export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
@@ -41,7 +45,12 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
       } transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
         
         <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200">
-          <h1 className="text-xl font-bold text-gray-900">Squeegee CRM</h1>
+          <div className="flex items-center">
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+              <span className="text-white font-bold text-sm">LV</span>
+            </div>
+            <h1 className="text-xl font-bold text-gray-900">Langų Valymas</h1>
+          </div>
           <button
             className="lg:hidden"
             onClick={() => setSidebarOpen(false)}
@@ -74,6 +83,19 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
             })}
           </div>
         </nav>
+
+        {/* User section */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
+          <div className="flex items-center">
+            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+              <span className="text-gray-600 text-sm font-medium">JD</span>
+            </div>
+            <div className="ml-3">
+              <p className="text-sm font-medium text-gray-700">Jonas Darbuotojas</p>
+              <p className="text-xs text-gray-500">Administratorius</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Mobile menu button */}

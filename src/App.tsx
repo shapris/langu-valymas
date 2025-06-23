@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import Dashboard from './pages/Dashboard'
-import Contacts from './pages/Contacts'
-import Companies from './pages/Companies'
-import Deals from './pages/Deals'
+import Clients from './pages/Clients'
+import Properties from './pages/Properties'
+import Orders from './pages/Orders'
 import Tasks from './pages/Tasks'
+import Finances from './pages/Finances'
+import Routes from './pages/Routes'
 import './App.css'
 
 function App() {
@@ -20,10 +22,12 @@ function App() {
           <main className="flex-1 relative overflow-y-auto focus:outline-none">
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="/companies" element={<Companies />} />
-              <Route path="/deals" element={<Deals />} />
+              <Route path="/clients" element={<Clients />} />
+              <Route path="/properties" element={<Properties />} />
+              <Route path="/orders" element={<Orders />} />
               <Route path="/tasks" element={<Tasks />} />
+              <Route path="/finances" element={<Finances />} />
+              <Route path="/routes" element={<Routes />} />
             </Routes>
           </main>
         </div>
